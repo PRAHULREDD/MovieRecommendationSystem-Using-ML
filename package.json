@@ -1,0 +1,35 @@
+{
+  "name": "movie-recommender",
+  "version": "1.0.0",
+  "description": "AI-powered movie recommendation system with React frontend and FastAPI backend",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite",
+    "lint": "echo \"No linter configured\"",
+    "test": "echo \"No tests configured\""
+  },
+  "keywords": ["movie", "recommendation", "ai", "react", "fastapi", "machine-learning", "content-based-filtering"],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/movie-recommender.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/movie-recommender/issues"
+  },
+  "homepage": "https://github.com/yourusername/movie-recommender#readme",
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

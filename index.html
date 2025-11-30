@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎬 Movie Recommendation System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+      :root {
+        /* Dark Theme (Default) */
+        --font-sans: 'Poppins', sans-serif;
+        
+        --color-bg-start: #1b003a;
+        --color-bg-mid: #3d0076;
+        --color-bg-end: #0f0022;
+
+        --color-text: #EAEAEA;
+        --color-text-secondary: #c0c0c0;
+        --color-text-muted: #a0a0a0;
+
+        --color-accent-pink: #ff3c83;
+        --color-accent-violet: #a13cff;
+        
+        --glass-bg: rgba(26, 1, 54, 0.4);
+        --glass-border: rgba(255, 255, 255, 0.15);
+        
+        --glow-color: rgba(161, 60, 255, 0.6);
+        --focus-ring-color: #a13cff;
+      }
+      
+      html.light-theme {
+        /* Light Theme Overrides */
+        --color-bg-start: #f0f2f5;
+        --color-bg-mid: #e6e9ed;
+        --color-bg-end: #f5f7fa;
+
+        --color-text: #1f2937;
+        --color-text-secondary: #4b5563;
+        --color-text-muted: #6b7280;
+        
+        --glass-bg: rgba(255, 255, 255, 0.6);
+        --glass-border: rgba(0, 0, 0, 0.1);
+        
+        --glow-color: rgba(161, 60, 255, 0.15);
+      }
+
+      *, *::before, *::after {
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      body {
+        font-family: var(--font-sans);
+        color: var(--color-text);
+        background: linear-gradient(110deg, var(--color-bg-start), var(--color-bg-mid), var(--color-bg-end));
+        background-size: 400% 400%;
+        animation: gradient-animation 15s ease infinite;
+        transition: color 0.3s ease, background-color 0.3s ease;
+      }
+      
+      @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .gradient-text {
+        background: linear-gradient(90deg, var(--color-accent-pink), var(--color-accent-violet));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      
+      .shimmer {
+        position: relative;
+        overflow: hidden;
+      }
+      .shimmer::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 150%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        animation: shimmer-animation 5s infinite linear;
+      }
+      @keyframes shimmer-animation {
+        0% { left: -150%; }
+        100% { left: 150%; }
+      }
+      
+      .pop-in {
+        animation: popInAnimation 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+      @keyframes popInAnimation {
+        from { opacity: 0; transform: translateY(20px) scale(0.98); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      
+      .animate-fade-in-up {
+        animation: fade-in-up-animation 0.6s ease-out forwards;
+        opacity: 0;
+      }
+      @keyframes fade-in-up-animation {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Modal animations */
+      .animate-modal-pop-in { animation: modalPopIn 0.3s ease-out forwards; }
+      @keyframes modalPopIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .animate-fade-in { animation: fadeIn 0.3s ease-in-out forwards; }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      /* Enhanced Focus Glow */
+      input:focus, button:focus-visible {
+        box-shadow: 0 0 15px var(--glow-color);
+      }
+
+      /* Tooltip Styles */
+      .tooltip-container {
+        position: relative;
+      }
+      .tooltip-container::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(4px);
+        margin-bottom: 8px;
+        background-color: #110022;
+        color: var(--color-text);
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+        z-index: 50;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      }
+      .tooltip-container:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      
+      /* Film Reel Loader */
+      .film-reel-loader {
+        perspective: 800px;
+        width: 100px;
+        height: 100px;
+      }
+      .film-reel-loader .reel-container {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        animation: rotate-reel 3s infinite linear;
+      }
+      .film-reel {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 8px solid var(--color-text-muted);
+        background-color: var(--color-bg-mid);
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+      }
+      .film-reel.back {
+        transform: translateZ(-20px);
+      }
+      .reel-spoke {
+        position: absolute;
+        width: 10px;
+        height: 100%;
+        background-color: var(--color-text-muted);
+        left: 50%;
+        margin-left: -5px;
+      }
+      .reel-spoke:nth-child(2) { transform: rotate(60deg); }
+      .reel-spoke:nth-child(3) { transform: rotate(120deg); }
+      @keyframes rotate-reel {
+        from { transform: rotateY(0deg); }
+        to { transform: rotateY(360deg); }
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar { width: 10px; }
+      ::-webkit-scrollbar-track { background: var(--color-bg-end); }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(var(--color-accent-pink), var(--color-accent-violet));
+        border-radius: 5px;
+        border: 2px solid var(--color-bg-end);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(var(--color-accent-violet), var(--color-accent-pink));
+      }
+    </style>
+
+
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/src/index.tsx"></script>
+</body>
+</html>
