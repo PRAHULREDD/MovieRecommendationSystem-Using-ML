@@ -66,17 +66,20 @@
 
 ### Option 1: Automated Setup (Recommended)
 
-1. **Run the setup script:**
+1. **Install dependencies:**
    ```bash
-   run_setup.bat
+   npm install
+   pip install -r backend/requirements.txt
    ```
-   This will automatically install all dependencies and set up the environment.
 
 2. **Start the application:**
    ```bash
-   run_app.bat
+   # Terminal 1 - Backend
+   cd backend && python backend.py
+   
+   # Terminal 2 - Frontend  
+   npm run dev
    ```
-   This starts both frontend and backend servers.
 
 ### Option 2: Manual Setup
 
