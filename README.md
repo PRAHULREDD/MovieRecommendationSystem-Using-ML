@@ -210,11 +210,21 @@ MovieRecommendationSystem-Using-ML/
 
 ## 📸 Screenshots
 
-*Add screenshots of your application here*
+### Main Interface
+![Movie Recommendation Interface](IMAGE-1.png)
+
+### Search Results
+![Movie Search and Recommendations](IMAGE-2.png)
+
+### Movie Details
+![Movie Details Modal](IMAGE-3.png)
 
 ## 🚀 Demo
 
-*Add live demo link here if available*
+### Video Demonstration
+![Demo Video](demo-video.mp4)
+
+*Watch the full demonstration of the movie recommendation system in action*
 
 ## 🤝 Contributing
 
