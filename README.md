@@ -1,13 +1,15 @@
-# 🎬 Advanced Movie Recommendation System
+# 🎬 Movie Recommendation System Using ML
 
-> **Production-Ready ML Engineering Project** - Content-Based Filtering with Real-Time Inference
+> **Machine Learning Project** - Content-Based Filtering Algorithm Implementation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![React](https://img.shields.io/badge/React-19.2.0-blue.svg)](https://reactjs.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104.1-green.svg)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/React-19.2.0-blue.svg)](https://reactjs.org)
 [![ML](https://img.shields.io/badge/ML-Content--Based%20Filtering-orange.svg)]()
-[![Data](https://img.shields.io/badge/Dataset-MovieLens-red.svg)]()
+[![Dataset](https://img.shields.io/badge/Dataset-MovieLens-red.svg)]()
+
+A machine learning-powered movie recommendation system that suggests movies based on content similarity. Built with FastAPI backend serving ML models and React frontend for user interaction.
 
 ## 🧠 **ML Engineering Highlights**
 
@@ -64,24 +66,40 @@
 - **Node.js 16+** - [Download here](https://nodejs.org)
 - **Git** (optional) - For cloning the repository
 
-### Option 1: Automated Setup (Recommended)
+### Quick Start
 
-1. **Install dependencies:**
+1. **Clone the repository:**
    ```bash
-   npm install
+   git clone https://github.com/PRAHULREDD/MovieRecommendationSystem-Using-ML.git
+   cd MovieRecommendationSystem-Using-ML
+   ```
+
+2. **Install Python dependencies:**
+   ```bash
    pip install -r backend/requirements.txt
    ```
 
-2. **Start the application:**
+3. **Install Node.js dependencies:**
    ```bash
-   # Terminal 1 - Backend
-   cd backend && python backend.py
-   
-   # Terminal 2 - Frontend  
+   npm install
+   ```
+
+4. **Start the backend server:**
+   ```bash
+   cd backend
+   python backend.py
+   ```
+
+5. **Start the frontend (in new terminal):**
+   ```bash
    npm run dev
    ```
 
-### Option 2: Manual Setup
+6. **Access the application:**
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:8000
+
+### Manual Setup (Alternative)
 
 1. **Clone the repository:**
    ```bash
@@ -131,27 +149,22 @@
 ## 📁 Project Structure
 
 ```
-movie_recommender/
-├── 🧠 ML CORE/
-│   ├── backend/
-│   │   ├── backend.py           # 🔥 ML API Server (FastAPI)
-│   │   ├── model_full.parquet   # 📊 Trained Similarity Matrix
-│   │   ├── movie_database_full.parquet # 💾 Processed Dataset
-│   │   └── requirements.txt     # ML Dependencies
-│   └── data/
-│       └── the-movies-dataset/  # 🎬 Raw MovieLens Data
-├── 🎨 FRONTEND/
-│   └── src/
-│       ├── components/      # React UI Components
-│       ├── services/        # ML API Integration
-│       └── types.ts         # TypeScript Models
-├── ⚙️ DEVOPS/
-│   ├── scripts/         # Automation Scripts
-│   └── movie_env/       # Python Environment
-└── 📄 CONFIG/
-    ├── package.json     # Node.js Dependencies
-    ├── tsconfig.json    # TypeScript Config
-    └── vite.config.ts   # Build Configuration
+MovieRecommendationSystem-Using-ML/
+├── backend/                    # ML Backend
+│   ├── backend.py              # FastAPI server with ML endpoints
+│   ├── model_full.parquet      # Trained similarity matrix
+│   ├── movie_database_full.parquet # Processed movie dataset
+│   └── requirements.txt        # Python dependencies
+├── src/                        # React Frontend
+│   ├── components/             # UI components
+│   ├── services/               # API integration
+│   └── types.ts                # TypeScript definitions
+├── data/                       # Dataset
+│   └── the-movies-dataset/     # MovieLens CSV files
+├── index.html                  # Main HTML file
+├── package.json                # Node.js dependencies
+├── vite.config.ts              # Vite configuration
+└── README.md                   # Project documentation
 ```
 
 ## 🛠️ **ML Engineering Skills Demonstrated**
