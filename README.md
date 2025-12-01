@@ -223,7 +223,7 @@ MovieRecommendationSystem-Using-ML/
 ## 🚀 Demo
 
 ### Video Demonstration
-[![Demo Video](IMAGE-1.png)](DEMO.mp4)
+[![Demo Video](IMAGE-1.png)](https://github.com/PRAHULREDD/MovieRecommendationSystem-Using-ML/releases/download/v1.0/DEMO.mp4)
 
 *Click the image above to watch the full demonstration of the movie recommendation system in action*
 
