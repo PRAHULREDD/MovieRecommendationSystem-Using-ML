@@ -61,7 +61,7 @@ similarity_matrix = cosine_similarity(count_matrix, dense_output=False)
 ```
 
 ### **4. Model Persistence**
-- **Similarity Matrix**: Stored as `model_full.parquet` (Float32 for memory optimization)
+- **Similarity Matrix**: Stored as `model_full.parquet` (Parquet compression for optimization)
 - **Processed Dataset**: Stored as `movie_database_full.parquet` with cleaned features
 - **Fast I/O**: Parquet format provides 10x faster loading vs CSV
 
@@ -170,10 +170,11 @@ MovieRecommendationSystem-Using-ML/
 │       ├── credits.csv
 │       ├── keywords.csv
 │       └── movies_metadata.csv
+├── assets/
+│   ├── IMAGE-1.png
+│   ├── IMAGE-2.png
+│   └── IMAGE-3.png
 ├── movie_env/
-├── IMAGE-1.png
-├── IMAGE-2.png
-├── IMAGE-3.png
 ├── index.html
 ├── LICENSE
 ├── package.json
@@ -211,13 +212,13 @@ MovieRecommendationSystem-Using-ML/
 ## 📸 Screenshots
 
 ### Main Interface
-![Movie Recommendation Interface](IMAGE-1.png)
+![Movie Recommendation Interface](assets/IMAGE-1.png)
 
 ### Search Results
-![Movie Search and Recommendations](IMAGE-2.png)
+![Movie Search and Recommendations](assets/IMAGE-2.png)
 
 ### Movie Details
-![Movie Details Modal](IMAGE-3.png)
+![Movie Details Modal](assets/IMAGE-3.png)
 
 
 
@@ -243,7 +244,7 @@ MovieRecommendationSystem-Using-ML/
 
 ## 🔍 **Technical Challenges Solved**
 
-- **Memory Optimization**: Reduced similarity matrix from 8GB to 4GB using Float32
+- **Memory Optimization**: Compressed similarity matrix to 4GB using Parquet compression
 - **Fast Lookup**: Implemented O(1) movie search with lowercase indexing
 - **Scalable Architecture**: Async FastAPI handles concurrent requests efficiently
 - **Data Pipeline**: Automated ETL process for 45K+ movie records
