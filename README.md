@@ -223,9 +223,9 @@ MovieRecommendationSystem-Using-ML/
 ## 🚀 Demo
 
 ### Video Demonstration
-![Demo Video](DEMO.mp4)
+[![Demo Video](IMAGE-1.png)](DEMO.mp4)
 
-*Watch the full demonstration of the movie recommendation system in action*
+*Click the image above to watch the full demonstration of the movie recommendation system in action*
 
 ## 🔧 Troubleshooting
 
