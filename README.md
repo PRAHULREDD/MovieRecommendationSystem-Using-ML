@@ -231,11 +231,11 @@ MovieRecommendationSystem-Using-ML/
    - Try exact movie title from dataset (e.g., "The Matrix" not "matrix")
 
 2. **Slow recommendations:**
-   - First request loads 4GB similarity matrix into memory
+   - First request loads 1.5GB similarity matrix into memory
    - Subsequent requests are <100ms
 
 3. **Memory errors:**
-   - Requires minimum 8GB RAM to load full similarity matrix
+   - Requires minimum 4GB RAM to load full similarity matrix
    - Consider using smaller dataset for testing
 
 4. **Missing model files:**
@@ -244,7 +244,7 @@ MovieRecommendationSystem-Using-ML/
 
 ## 🔍 **Technical Challenges Solved**
 
-- **Memory Optimization**: Compressed similarity matrix to 4GB using Parquet compression
+- **Memory Optimization**: Compressed similarity matrix to 1.5GB using Parquet compression
 - **Fast Lookup**: Implemented O(1) movie search with lowercase indexing
 - **Scalable Architecture**: Async FastAPI handles concurrent requests efficiently
 - **Data Pipeline**: Automated ETL process for 45K+ movie records
@@ -258,7 +258,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Dataset Size**: 45,000+ movies processed
 - **Feature Dimensions**: 15,000 optimized features
 - **Inference Speed**: <100ms average response time
-- **Memory Usage**: 4GB similarity matrix (optimized)
+- **Memory Usage**: 1.5GB similarity matrix (Parquet compressed)
 - **API Throughput**: 100+ concurrent requests supported
 
 ## 📚 **Data Sources**
